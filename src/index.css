@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Color Palette from user request */
+    --background: 210 20% 98%; /* #F8FAFC (Background) */
+    --foreground: 221 48% 9%; /* #0B1220 (Text) */
+
+    --primary: 210 64% 16%; /* #0F2A44 (Deep Navy) */
+    --primary-foreground: 210 40% 98%;
+
+    --accent: 174 62% 47%; /* #2EC4B6 (Teal) */
+    --accent-foreground: 210 40% 98%;
+
+    --cta: 187 72% 38%; /* #1B9AAA (CTA) */
+    --border: 214 32% 91%; /* #E5E7EB (Border) */
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Global Font Override */
+* {
+  font-family: "Poppins", sans-serif !important;
+}
+
+/* Custom Utilities for the Carousel Item */
+@layer utilities {
+  .shadow-inset-custom {
+    box-shadow: inset 0px 4px 4px 0px #00000040;
+  }
+
+  /* Progress Border Animation for Thumbnails */
+  .animate-progress-border {
+    animation: progress-fill 5s linear infinite;
+  }
+
+  .fade-in-image {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+}
+
+/* Keyframe Animations */
+
+@layer utilities {
+  .animate-progress {
+    /* Animates from 0% to 100% width over 5 seconds */
+    animation: progress-fill 5s linear forwards;
+  }
+
+  .animate-fade {
+    animation: fadeIn 0.6s ease-in-out forwards;
+  }
+}
+
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 1.5s linear infinite;
+}
